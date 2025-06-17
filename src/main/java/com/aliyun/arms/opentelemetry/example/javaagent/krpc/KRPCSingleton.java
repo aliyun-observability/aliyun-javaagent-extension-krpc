@@ -25,6 +25,7 @@ public class KRPCSingleton {
                             INSTRUMENTATION_NAME,
                             new KRPCSpanNameExtractor())
                     .addAttributesExtractor(KrpcAttributesExtractor.INSTANCE)
+                    .addOperationMetrics(KRPCMetrics::new)
                     .buildServerInstrumenter(KRPCHeaderGetter.INSTANCE);
 
     CLIENT_INSTRUMENTER =
